@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
   ],
   devtools: { enabled: true },
+  css: ['~/assets/styles/index.css'],
   future: {
     compatibilityVersion: 4,
   },
