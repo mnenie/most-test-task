@@ -8,6 +8,8 @@ export default createConfigForNuxt({
 }).overrideRules({
   'vue/multi-word-component-names': 'off',
   'vue/max-attributes-per-line': [
-    'error', { singleline: 3 },
+    'error', { singleline: 5 },
   ],
+  '@typescript-eslint/no-explicit-any': 'off',
+  '@typescript-eslint/no-unused-vars': 'warn',
 })
