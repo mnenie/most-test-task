@@ -1,5 +1,13 @@
+<script lang="ts" setup>
+definePageMeta({
+  middleware: ['auth'],
+})
+
+const authStore = useAuthStore()
+</script>
+
 <template>
   <div>
-    products list
+    {{ authStore.user }}
   </div>
 </template>
