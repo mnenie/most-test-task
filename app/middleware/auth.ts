@@ -2,8 +2,8 @@ export default defineNuxtRouteMiddleware(async () => {
   const nuxtApp = useNuxtApp()
   const token = useCookie('token')
   if (!token.value) {
-    return nuxtApp.runWithContext(() => navigateTo({
+    return navigateTo({
       name: 'login',
-    }))
+    })
   }
 })
