@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt',
     '@formkit/auto-animate/nuxt',
     '@pinia/nuxt',
+    '@vueuse/nuxt',
   ],
   devtools: { enabled: true },
   css: ['~/assets/styles/index.css'],
