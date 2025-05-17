@@ -5,7 +5,7 @@ import { links } from '~/constants/links'
 <template>
   <div
     class=" w-full flex gap-2 items-center justify-center pt-10"
-    :class="[$route.path === '/' ? 'relative' : 'fixed']"
+    :class="[$route.name === 'index' ? 'relative' : 'fixed']"
   >
     <NuxtLink
       v-for="{ to, title } in links"

@@ -7,11 +7,11 @@ const { user } = storeToRefs(authStore)
 
 const productsStore = useProductsStore()
 
-const { data: products, error, status } = await useAsyncData('products212', async () => {
+const { data: products, error, status } = await useAsyncData('products', async () => {
   await delay(1000)
   return productsStore.getProducts()
-},
-{
+}, {
+  transform: data => data || [],
   server: false, lazy: true,
 })
 
@@ -36,6 +36,7 @@ definePageMeta({
     <p v-if="error" class="text-center text-red-500">
       Товаров не найдено в связи с ошибкой
     </p>
-    <ProductsListOfCards v-else :products="filteredProducts" :status />
+    <ProductsListOfCards v-else-if="status === 'success'" :products="filteredProducts" :status />
+    <ProductsListSkeleton v-else-if="status === 'pending'" />
   </div>
 </template>
