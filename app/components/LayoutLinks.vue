@@ -3,7 +3,10 @@ import { links } from '~/constants/links'
 </script>
 
 <template>
-  <div class="fixed w-full flex gap-2 items-center justify-center pt-10">
+  <div
+    class=" w-full flex gap-2 items-center justify-center pt-10"
+    :class="[$route.path === '/' ? 'relative' : 'fixed']"
+  >
     <NuxtLink
       v-for="{ to, title } in links"
       :key="to"

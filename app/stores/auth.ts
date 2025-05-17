@@ -3,7 +3,7 @@ import type { User } from '~/types/auth'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = shallowRef<Raw<User> | null>(null)
-  const token = useCookie<string>('token')
+  const token = useCookie<string | null>('token')
 
   const { loginUser, getCurrentUser: getUser } = useAuth()
   const toast = useToast()
@@ -36,10 +36,19 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  async function logout() {
+    token.value = null
+    user.value = null
+    await navigateTo({
+      name: 'login',
+    })
+  }
+
   return {
     user,
     login,
     getCurrentUser,
+    logout,
   }
 })
 
