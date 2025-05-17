@@ -5,11 +5,12 @@ export function useFilterProducts<F extends string = string>(
   filterByCategory: MaybeRefOrGetter<F>,
   products: MaybeRefOrGetter<Omit<Product, 'description'>[] | undefined>,
 ) {
+  const nameFilter = refDebounced<string>(toRef(filterByName), 500)
   const filteredProducts = computed(() => {
     if (!toValue(products)) return []
     return [...toValue(products)!]
       .filter(product =>
-        product.title.toLowerCase().includes(toValue(filterByName).toLowerCase()))
+        product.title.toLowerCase().includes(nameFilter.value.toLowerCase()))
       .sort((a, b) => toValue(filterByCategory) === 'По категории'
         ? a.category.name.localeCompare(b.category.name)
         : 0)
