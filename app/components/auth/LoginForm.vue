@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useField, useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
+import { schema } from '~/schemas/auth'
 
-const { schema } = useAuth()
 const formSchema = toTypedSchema(
   schema,
 )

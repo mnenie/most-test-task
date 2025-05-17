@@ -7,6 +7,7 @@ const appConfig = useAppConfig()
     <NuxtRouteAnnouncer />
     <UApp :toaster="appConfig.toaster">
       <NuxtLayout>
+        <LayoutLinks />
         <NuxtPage />
       </NuxtLayout>
     </UApp>
